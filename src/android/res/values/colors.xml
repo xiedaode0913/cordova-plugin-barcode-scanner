@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="handword_color">#66ff33</color>
+    <color name="input_color">#b3b3b3</color>
+    <color name="colorLoginInputBg">#cecece</color>
+</resources>

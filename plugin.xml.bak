@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-barcode_scanner_56n" version="1.0.0">
+    <name>Barcode_Scanner_56N</name>
+    <author>Francis</author>
+    <description>Barcode Scanner Return Numbers</description>
+    <keywords>Barcode Scanner</keywords>
+    <license>Apache 2.0 License</license>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <js-module src="www/barcode_scanner_56n.js" name="Barcode_Scanner_56N">
+        <clobbers target="barcode_scanner_56n" />
+    </js-module>
+
+	<platform name="android">
+		<hook type="after_plugin_install" src="scripts/android-install.js" />
+        <hook type="before_plugin_uninstall" src="scripts/android-install.js" />
+		
+		<source-file src="src/android/Barcode_Scanner_56N.java" target-dir="src/com/phonegap/plugins/barcode_scanner_56n" />
+        
+		<config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Barcode_Scanner_56N">
+                    <param name="android-package" value="com.phonegap.plugins.barcode_scanner_56n.Barcode_Scanner_56N"/>
+            </feature>
+        </config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.VIBRATE" />
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-feature android:name="android.hardware.camera" />
+			<uses-feature android:name="android.hardware.camera.autofocus" />
+			<uses-permission android:name="android.permission.FLASHLIGHT" />
+		</config-file>
+
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity
+		        android:name="com.zbar.lib.CaptureActivity"
+			    android:configChanges="orientation|keyboardHidden"
+				android:screenOrientation="portrait"
+				android:theme="@android:style/Theme.Black.NoTitleBar"
+				android:windowSoftInputMode="stateAlwaysHidden" >
+			</activity>
+			<activity android:name="com.zbar.lib.HandWorkActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+		</config-file>
+
+		<source-file src="src/android/com/zbar/lib/CaptureActivity.java" target-dir="src/com/zbar/lib" />
+		<source-file src="src/android/com/zbar/lib/HandWorkActivity.java" target-dir="src/com/zbar/lib" />
+		<source-file src="src/android/com/zbar/lib/ZbarManager.java" target-dir="src/com/zbar/lib" />	
+		<source-file src="src/android/com/zbar/lib/bitmap/InvertedLuminanceSource.java" target-dir="src/com/zbar/lib/bitmap" />
+		<source-file src="src/android/com/zbar/lib/bitmap/LuminanceSource.java" target-dir="src/com/zbar/lib/bitmap" />
+		<source-file src="src/android/com/zbar/lib/bitmap/PlanarYUVLuminanceSource.java" target-dir="src/com/zbar/lib/bitmap" />	
+		<source-file src="src/android/com/zbar/lib/camera/AutoFocusCallback.java" target-dir="src/com/zbar/lib/camera" />	
+		<source-file src="src/android/com/zbar/lib/camera/CameraConfigurationManager.java" target-dir="src/com/zbar/lib/camera" />	
+		<source-file src="src/android/com/zbar/lib/camera/CameraManager.java" target-dir="src/com/zbar/lib/camera" />	
+		<source-file src="src/android/com/zbar/lib/camera/FlashlightManager.java" target-dir="src/com/zbar/lib/camera" />	
+		<source-file src="src/android/com/zbar/lib/camera/PreviewCallback.java" target-dir="src/com/zbar/lib/camera" />	
+		<source-file src="src/android/com/zbar/lib/decode/CaptureActivityHandler.java" target-dir="src/com/zbar/lib/decode" />	
+		<source-file src="src/android/com/zbar/lib/decode/DecodeHandler.java" target-dir="src/com/zbar/lib/decode" />	
+		<source-file src="src/android/com/zbar/lib/decode/DecodeThread.java" target-dir="src/com/zbar/lib/decode" />	
+		<source-file src="src/android/com/zbar/lib/decode/FinishListener.java" target-dir="src/com/zbar/lib/decode" />	
+		<source-file src="src/android/com/zbar/lib/decode/InactivityTimer.java" target-dir="src/com/zbar/lib/decode" />
+
+		<source-file src="src/android/res/drawable-hdpi/scan_line.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/capture.9.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/arrow_left.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-xhdpi/scan_mask.png" target-dir="res/drawable-xhdpi"/>
+		<source-file src="src/android/res/layout/activity_scanner.xml" target-dir="res/layout"/>
+		<source-file src="src/android/res/layout/activity_input.xml" target-dir="res/layout"/>
+		
+		<source-file src="src/android/res/drawable/bg_input_login.xml" target-dir="res/drawable"/>
+
+		<source-file src="src/android/res/drawable-hdpi/all_exception_normal.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/all_exception_selsected.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/progress_loading2.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/several_exception_normal.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/several_exception_selected.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/single_excetpion_normal.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/single_excetpion_selected.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/ic_flashlight1.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/ic_flash_close.png" target-dir="res/drawable-hdpi"/>
+		<source-file src="src/android/res/drawable-hdpi/ic_flash_open.png" target-dir="res/drawable-hdpi"/>
+		
+
+
+		<source-file src="src/android/res/values/ids.xml" target-dir="res/values"/>
+		<source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
+
+		<source-file src="src/android/libs/armeabi/libzbar.so" target-dir="libs/armeabi"/>
+		<source-file src="src/android/libs/armeabi/libiconv.so" target-dir="libs/armeabi"/>
+
+		<source-file src="src/android/res/raw/ring.wav" target-dir="res/raw"/>
+		<source-file src="src/android/res/raw/realm_properties" target-dir="res/raw"/>
+		<source-file src="src/android/res/raw/beep.ogg" target-dir="res/raw"/>
+
+		<config-file target="res/values/strings.xml" parent="/resources">
+			<string name="scan_title">扫码</string>
+			<string name="back">返回</string>
+			<string name="handwork_input">手工输入订单号</string>
+			<string name="close">关闭</string>
+			<string name="input_no">输入订单号：</string>
+			<string name="confirm">确认</string>
+			<string name="confirm_error">请先输入订单号！</string>
+		</config-file>
+	</platform>
+    
+</plugin>
